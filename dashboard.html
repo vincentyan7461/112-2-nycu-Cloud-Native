@@ -1,0 +1,208 @@
+{% load static  %}
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Open+Sans&display=swap" rel="stylesheet">
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">		<script src="https://kit.fontawesome.com/68f8681dba.js" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.1/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>		<script src="https://kit.fontawesome.com/68f8681dba.js" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+		<title>台灣生物資訊與系統生物學會活動平台 - 個人主頁</title>
+		
+	</head>
+	
+	<body>
+		
+        <header>
+	        <div class='container'>
+				<nav class="navbar navbar-expand-lg navbar-light">
+				  <a class="navbar-brand" href="{% url 'home:index' %}"><img src="{% static 'home/img/TBSB.png' %}" width='160'></a>
+				  <button 
+				  	class="navbar-toggler" 
+					type="button" 
+					data-bs-toggle="collapse" 
+					data-bs-target="#navbarSupportedContent" 
+					aria-controls="navbarSupportedContent" 
+					aria-expanded="false" 
+					aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>				
+				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">
+				      <li class="nav-item">
+				        <a class="nav-link" href="{% url 'home:index' %}">首頁</a>
+				      </li>
+				     
+	
+				      <li class="nav-item">
+				        <a class="nav-link" href="{% url 'home:qa' %}">常見問題</a>
+				      </li>		
+					  <li class="nav-item">
+						<a class="nav-link disabled">{{request.user.name}} 您好</a>
+					  </li>
+                      <li class="nav-item">
+				        <a class="btn btn-primary" href="{% url 'account:logout' %}">登出</a>
+				      </li>	
+				    </ul>
+				  
+				  </div>
+				</nav>
+	        </div>
+        </header>
+	
+        <section id='second01'>
+	        <div class="container">
+		        <div class='row mt-3'>
+					  <div class='col-md-10 offset-md-1 text-center'>
+					  	<h4>會員資訊</h4>
+					  	<div class='row justify-content-center'>
+						  	{% comment %} <div class='col-md-4 text-center'>
+							  	<img src='pictures/inner.png'>
+							  	<h5>姓名:Frank</h5>
+						  	</div> {% endcomment %}
+						  	<div class='col-md-6'>
+								<div class="card my-2">
+									<ul class="list-group list-group-flush text-start">
+										<li class="list-group-item">姓名 : {{ name }}</li>
+										<li class="list-group-item">身份 : {{is_student}}</li>
+  										<li class="list-group-item">會員狀態 : {{status}}</li>
+										<li class="list-group-item">信箱 : {{ email }}</li>
+										<li class="list-group-item">連絡電話 : {{ phone }}</li>
+										<li class="list-group-item">郵遞區號 : {{ zip_code }}</li>
+										<li class="list-group-item">地址 : {{ address }}</li>
+										<li class="list-group-item">職位 : {{ position }}</li>
+										<li class="list-group-item">學校/公司 : {{ organization }}</li>
+										<li class="list-group-item">系所/單位 : {{ department }}</li>
+										<li class="list-group-item">收據抬頭 : {{ taxid_title }}</li>
+										<li class="list-group-item">統編 : {{ taxid_number }}</li>
+
+									</ul>
+									<div class="card-body btn-group" role="group">
+										<a href="{% url 'account:info_update' %}" class="btn btn-primary">更改個人資料</a>
+										<a href="{% url 'account:fee' %}" class="btn btn-primary">繳交會費</a>
+										<a href="{% url 'course:order_list' %}" class="btn btn-primary">已報名活動</a>
+									</div>
+								</div>							
+								<div class="card my-3">
+									
+									{% comment %} <ul class="list-group list-group-flush">
+									</ul> {% endcomment %}
+								</div>
+						  	</div>
+                                
+    
+					  	</div>
+					  </div>
+			    <div>
+	        </div>
+	        
+        </section>
+        	
+        <section id='latest'>
+	        
+	        <div class="container">
+		        <div class='row'>
+					  <div class='col-md-12 text-center'>
+					  	<h3 >
+							最新活動
+							{% comment %} ><a href="#" style="margin-left: 10px;">點我看更多</a> {% endcomment %}
+						</h3>
+                        
+					  	<div class='row'>
+						  	<div class='col-md-4 text-left'>
+							  	<div class='outer'>
+								  	<a href="{% url 'mopm2022:index' %}">
+									  	<div class='upper'>
+											<img src="{% static 'mopm2022/img/bg-mopm.png' %}" class="img-fluid">
+											<div class='innertext'>
+												<span>可報名</span>
+												<h4>價格：詳見活動報名頁面</h4>
+											</div>
+									  	</div>
+									  	<div class='lower'>
+										  	<h3>2022 多體學及精準醫學聯合會議 MOPM</h3>
+										  	<span><i class="fas fa-map-marker-alt"></i> 財團法人張榮發基金會國際會議廳</span><br>
+										  	<span><i class="far fa-clock"></i> 2022/11/19(六)~2022/11/20(日)</span>
+									  	</div>
+								  	</a>
+							  	</div>
+						  	</div>
+						  	{% comment %} <div class='col-md-4 text-left'>
+							  	<div class='outer'>
+								  	<a href='attend01.html'>
+									  	<div class='upper'>
+											<img src='pictures/inner.png'>
+											<div class='innertext'>
+												<span>可報名</span>
+												<h4>價格：100元/人</h4>
+											</div>
+									  	</div>
+									  	<div class='lower'>
+										  	<h3>生物資訊2</h3>
+										  	<span><i class="fas fa-map-marker-alt"></i> 交通大學</span><br>
+										  	<span><i class="far fa-clock"></i> Nov 03, 2018 08:00PM</span>
+									  	</div>
+								  	</a>
+							  	</div>
+						  	</div>
+						  	<div class='col-md-4 text-left'>
+							  	<div class='outer'>
+								  	<a href='attend01.html'>
+									  	<div class='upper'>
+											<img src='pictures/inner.png'>
+											<div class='innertext'>
+												<span>可報名</span>
+												<h4>價格：100元/人</h4>
+											</div>
+									  	</div>
+									  	<div class='lower'>
+										  	<h3>生物資訊3</h3>
+										  	<span><i class="fas fa-map-marker-alt"></i> 交通大學</span><br>
+										  	<span><i class="far fa-clock"></i> Nov 03, 2018 08:00PM</span>
+									  	</div>
+								  	</a>
+							  	</div>
+						  	</div>						 {% endcomment %}
+					  	</div>
+					  </div>
+			    <div>
+	        </div>
+        
+        </section>
+        
+        <footer>
+	        
+	        <div class="container">
+		        <div class='row'>
+					  <div class='col-md-4 text-left'>
+						<img src="{% static 'home/img/TBSB.png' %}" width='85'>
+						<a href="http://www.tbsb.org.tw/" target="_blank">台灣生物資訊與系統生物學會官網</a>
+					  </div>
+					  <div class='col-md-4 text-left'>
+					  </div>
+					  <div class='col-md-4 text-left'>
+						  <h4>聯絡我們</h4>
+						  <p>
+							300 新竹市東區博愛街75號 (陽明交通大學博愛校區)<br>
+							賢齊樓 4樓 412 室<br>
+							聯絡電話: (03)5712121 #56905<br>
+							電子信箱: <a href='mailto:tbsb.tw@gmail.com'>tbsb.tw@gmail.com</a><br>
+							臉書粉專: <a href="https://www.facebook.com/TBSBFANS" target="_blank" rel="noopener noreferrer">https://www.facebook.com/TBSBFANS</a>
+					      </p>
+					  </div>
+		        </div>
+				<div class="row text-center">
+					<p>Copyright 2022 © 台灣生物資訊與系統生物學會</p>
+				</div>
+	        </div>	        
+        
+        </footer>
+		
+		<script src="{% static 'home/js/script.js' %}"></script>
+	</body>
+	
+</html>
